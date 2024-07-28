@@ -1,0 +1,74 @@
+
+Feature: Checkout Process
+
+Scenario: Successful checkout with valid details
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  And I enter valid shipping details with South Africa as the country and Alberton as the city
+  And I enter a valid email address
+  And I confirm the order
+  Then the order should be placed successfully
+
+Scenario: Checkout with invalid email address
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  And I enter valid shipping details with South Africa as the country and Alberton as the city
+  And I enter an invalid email address
+  And I try to confirm the order
+  Then I should see an error message indicating an invalid email address
+
+Scenario: Checkout with missing required fields
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  And I leave required fields empty
+  And I try to confirm the order
+  Then I should see error messages indicating the required fields
+
+Scenario: Checkout with invalid phone number
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  And I enter an invalid phone number
+  And I try to confirm the order
+  Then I should see an error message indicating an invalid phone number
+
+Scenario: Checkout with invalid postal code
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  And I enter an invalid postal code
+  And I try to confirm the order
+  Then I should see an error message indicating an invalid postal code
+
+Scenario: Checkout with no items in the basket
+  Given I am on the test store homepage
+  When I proceed to checkout without adding any items to the basket
+  Then I should see a message indicating that my basket is empty
+
+Scenario: Verify shipping options
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  Then I should see available shipping options
+  And I should be able to select a shipping option
+
+Scenario: Verify payment methods
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  Then I should see available payment methods
+  And I should be able to select a payment method
+
+Scenario: Verify order summary
+  Given I am on the test store homepage
+  When I add the first in-stock non-promo product to the basket
+  And I proceed to checkout
+  Then I should see an order summary with product details and total cost
+
+Scenario: Verify order confirmation email
+  Given I have successfully placed an order
+  When I check my email
+  Then I should receive an order confirmation email with order details

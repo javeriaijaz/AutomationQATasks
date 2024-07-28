@@ -1,0 +1,11 @@
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/bin/Debug/net8.0/TestStoreAutomation.deps.json
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/bin/Debug/net8.0/TestStoreAutomation.dll
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/bin/Debug/net8.0/TestStoreAutomation.pdb
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.AssemblyInfoInputs.cache
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.AssemblyInfo.cs
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.csproj.CoreCompileInputs.cache
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.dll
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/refint/TestStoreAutomation.dll
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/TestStoreAutomation.pdb
+/Users/Javeria/TestStoreAutomation/TestStoreAutomation/obj/Debug/net8.0/ref/TestStoreAutomation.dll

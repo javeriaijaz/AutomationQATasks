@@ -1,0 +1,32 @@
+Bug 1: Cookie Banner Obscuring Important Buttons
+- Description: The cookie consent banner sometimes obstructs the "Add to Basket" and other important buttons, making it difficult for users to interact with these elements.
+- Steps to Reproduce:
+  1. Navigate to the homepage: https://teststoreforsouthafri.nextbasket.shop/
+  2. Observe the cookie consent banner at the bottom.
+  3. Try to click on the "Add to Basket" button for any product.
+- Expected Result: The cookie consent banner should not obstruct any clickable elements. It should either be dismissible or positioned in a way that does not interfere with user interaction.
+- Actual Result: The cookie consent banner obstructs the "Add to Basket" button, preventing users from clicking it.
+
+Feature: Cookie Banner Obstruction
+
+Scenario: Cookie banner obstructs "Add to Basket" button
+  Given I am on the test store homepage
+  When the cookie consent banner is displayed
+  Then the cookie consent banner should not obstruct the "Add to Basket" button
+  And I should be able to click the "Add to Basket" button without obstruction
+
+Bug 2: Missing Alt Text for Product Images
+- Description: Product images are missing alt attributes which are important for accessibility and SEO.
+- Steps to Reproduce:
+  1. Navigate to any product listing page, e.g., https://teststoreforsouthafri.nextbasket.shop/categoryA
+  2. Inspect the images using browser developer tools.
+  3. Check for the presence of alt attributes on the product images.
+- Expected Result: All product images should have descriptive alt attributes to improve accessibility and SEO.
+- Actual Result: The product images are missing alt attributes.
+
+Feature: Accessibility and SEO Improvement
+
+Scenario: Product images missing alt attributes
+  Given I am on any product listing page
+  When I inspect the product images
+  Then each product image should have a descriptive alt attribute
