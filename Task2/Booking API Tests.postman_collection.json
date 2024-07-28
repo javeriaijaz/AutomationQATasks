@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b532d82d-4fd7-4504-a273-6279938ef206",
+		"name": "Booking API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17925220"
+	},
+	"item": [
+		{
+			"name": "Create Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.environment.set(\"bookingId\", response.bookingid);",
+							"pm.test(\"Verify booking values\", function () {",
+							"    pm.expect(response.booking.firstname).to.eql(\"John\");",
+							"    pm.expect(response.booking.lastname).to.eql(\"Doe\");",
+							"    pm.expect(response.booking.totalprice).to.eql(123);",
+							"    pm.expect(response.booking.depositpaid).to.eql(true);",
+							"    pm.expect(response.booking.bookingdates.checkin).to.eql(\"2024-01-01\");",
+							"    pm.expect(response.booking.bookingdates.checkout).to.eql(\"2024-01-02\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"totalprice\": 123,\n  \"depositpaid\": true,\n  \"bookingdates\": {\n    \"checkin\": \"2024-01-01\",\n    \"checkout\": \"2024-01-02\"\n  },\n  \"additionalneeds\": \"Breakfast\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBookingIDs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json();",
+							"const newBookingId = pm.environment.get(\"bookingId\");",
+							"",
+							"pm.test(\"Verify new booking ID is present\", function () {",
+							"    const bookingIds = response.map(booking => booking.bookingid);",
+							"    pm.expect(bookingIds).to.include(newBookingId);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
